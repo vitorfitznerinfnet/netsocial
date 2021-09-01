@@ -1,0 +1,44 @@
+﻿@model NetSocial.Site.Models.Posts.IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" action="/posts/create" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Imagem</label>
+        <input class="form-control" type="file" name="imagem">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+        <input type="text" class="form-control" name="title">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Texto</label>
+        <textarea class="form-control" name="text" rows="3"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Postar" />
+</form>
+
+<hr />
+
+@foreach (var post in Model.Posts)
+{
+
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@post.Title</h5>
+            <p class="card-text">@post.Text</p>
+            <a href="#" class="btn btn-primary"></a>
+        </div>
+    </div>
+}
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+        <a href="#" class="btn btn-primary"></a>
+    </div>
+</div>
