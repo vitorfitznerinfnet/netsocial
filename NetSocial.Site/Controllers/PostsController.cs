@@ -8,9 +8,11 @@ using Newtonsoft.Json;
 using Azure.Storage.Blobs;
 using System;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NetSocial.Site.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         public HttpClient postman { get; set; }
@@ -44,7 +46,8 @@ namespace NetSocial.Site.Controllers
             {
                 Title = title,
                 Text = text,
-                Img = endereco
+                Img = endereco,
+                Author =  User.Identity.Name
             };
 
             var postAsJson = JsonConvert.SerializeObject(createPost);
