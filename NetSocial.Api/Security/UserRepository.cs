@@ -13,6 +13,11 @@ namespace NetSocial.Api.Security
             users.Add(new User { Id = 2, Username = "robin", Password = "robin", Role = "employee" });
             return users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password).FirstOrDefault();
         }
+
+        internal static void Save(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
